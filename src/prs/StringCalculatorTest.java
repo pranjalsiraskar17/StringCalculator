@@ -18,4 +18,8 @@ public class StringCalculatorTest {
     public void TwoNumberedString(){
         assertSame(4,StringCalculator.add("1,3"));
     }
+    @Test
+    public void MultiValuedString(){
+        assertSame(7, StringCalculator.add("1,2,4"));
+    }
 }
