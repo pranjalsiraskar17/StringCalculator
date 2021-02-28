@@ -6,7 +6,11 @@ public class StringCalculator {
             return 0;
         String[] numarray=numbers.split(",");
         if(numarray.length==1)
-            return Integer.parseInt(numarray[0]);
-        return Integer.parseInt(numarray[0])+Integer.parseInt(numarray[1]);
+            return stringToInt(numarray[0]);
+        return stringToInt(numarray[0]) + stringToInt(numarray[1]); 
+    }
+
+    public static int stringToInt(String str) {
+        return Integer.parseInt(str);
     }
 }
