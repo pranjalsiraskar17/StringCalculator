@@ -5,16 +5,18 @@ public class StringCalculator {
         if(numbers.isEmpty())
             return 0;
         String[] numarray=numbers.split(",");
-        if(numarray.length==1)
-            return stringToInt(numarray[0]);
-        int sum=0;
-        for(int i=0;i<numarray.length;i++){
-            sum=sum+stringToInt(numarray[i]);
-        }
+        int sum=arrayadd(numarray);
         return sum; 
     }
 
     public static int stringToInt(String str) {
         return Integer.parseInt(str);
+    }
+
+    public static int arrayadd(String[] numarray){
+        int sum=0;
+        for(String str:numarray)
+            sum=sum+stringToInt(str);
+        return sum;
     }
 }
