@@ -5,7 +5,7 @@ public class StringCalculator {
         if(numbers.isEmpty())
             return 0;
         String[] numarray=numbers.split(",");
-        int sum=arrayadd(numarray);
+        int sum=arrayAdd(numarray);
         return sum; 
     }
 
@@ -13,7 +13,7 @@ public class StringCalculator {
         return Integer.parseInt(str);
     }
 
-    public static int arrayadd(String[] numarray){
+    public static int arrayAdd(String[] numarray){
         int sum=0;
         for(String str:numarray)
             sum=sum+stringToInt(str);
