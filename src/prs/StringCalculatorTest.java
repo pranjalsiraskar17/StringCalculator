@@ -22,4 +22,8 @@ public class StringCalculatorTest {
     public void MultiValuedString(){
         assertSame(7, StringCalculator.add("1,2,4"));
     }
+    @Test
+    public void NewLineBetweenNumbers(){
+        assertSame(11, StringCalculator.add("2\n6,3"));
+    }
 }
