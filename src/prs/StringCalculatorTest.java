@@ -26,4 +26,8 @@ public class StringCalculatorTest {
     public void NewLineBetweenNumbers(){
         assertSame(11, StringCalculator.add("2\n6,3"));
     }
+    @Test
+    public void DifferentDelimiters(){
+        assertSame(14, StringCalculator.add(";\n10;4"));
+    }
 }
