@@ -14,4 +14,8 @@ public class StringCalculatorTest {
     public void SingleValuedString(){
         assertSame(2, StringCalculator.add("2"));
     }
+    @Test
+    public void TwoNumberedString(){
+        assertSame(4,StringCalculator.add("1,3"));
+    }
 }
