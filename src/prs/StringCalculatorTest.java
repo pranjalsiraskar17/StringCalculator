@@ -28,6 +28,6 @@ public class StringCalculatorTest {
     }
     @Test
     public void DifferentDelimiters(){
-        assertSame(14, StringCalculator.add(";\n10;4"));
+        assertSame(14, StringCalculator.add("//;\n10;4"));
     }
 }
