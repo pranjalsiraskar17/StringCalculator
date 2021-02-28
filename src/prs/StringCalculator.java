@@ -4,7 +4,8 @@ public class StringCalculator {
     public static int add(String numbers){
         if(numbers.isEmpty())
             return 0;
-        String[] numarray=numbers.split(",|\n");
+        String delimeter=",|\n";
+        String[] numarray = numbers.split(delimeter);
         int sum=arrayAdd(numarray);
         return sum; 
     }
