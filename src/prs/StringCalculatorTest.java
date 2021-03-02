@@ -57,4 +57,9 @@ public class StringCalculatorTest {
     public void TestGetCalledCount(){
         assertSame(8, StringCalculator.getCalledCount());
     }
+    @Test
+    @Order(9)
+    public void IgnoreBiggerNumbers() throws Exception {
+        assertSame(5, StringCalculator.add("5,1002"));
+    }
 }
