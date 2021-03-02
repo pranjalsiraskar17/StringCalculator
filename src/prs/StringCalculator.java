@@ -4,11 +4,14 @@ import java.util.Arrays;
 
 public class StringCalculator {
     public static int add(String numbers) throws Exception {
-        if(numbers.isEmpty())
+        if (numbers.isEmpty())
             return 0;
-        int[] numarray=findNumbers(numbers);
-        int sum=arrayAdd(numarray);
-        return sum; 
+        int[] numarray = findNumbers(numbers);
+        String negativenum=findNegativeNumbers(numarray);
+        if(!negativenum.isEmpty())
+            throw new IllegalArgumentException("negatives not allowed : "+negativenum);
+        int sum = arrayAdd(numarray);
+        return sum;
     }
 
     public static int[] findNumbers(String numbers) {
@@ -22,24 +25,25 @@ public class StringCalculator {
         }
         return  Arrays.stream(numbers.split(delimiter)).mapToInt(Integer::parseInt).toArray();
     }
+    
+    public static String findNegativeNumbers(int[] numarray){
+        String neg="";
+        for(int n:numarray){
+            if(n<0){
+                if(neg.isEmpty())
+                    neg=""+n;
+                else    
+                    neg=neg+","+n;   
+            }
+        }
+        return neg;
+    }
 
     public static int arrayAdd(int[] numarray) throws Exception {
         int sum=0;
-        boolean bool=false;
-        String msg="";
         for(int temp:numarray){
-            if(temp<0){
-                bool=true;
-                if(msg.isEmpty())
-                    msg=""+temp;
-                else
-                    msg=msg+","+temp;
-            }
-            else
                 sum=sum+temp;
         }
-        if(bool)
-            throw new IllegalArgumentException("negatives not allowed : "+msg);
         return sum;
     }
 }
