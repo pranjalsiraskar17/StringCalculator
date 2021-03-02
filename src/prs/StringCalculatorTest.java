@@ -1,7 +1,7 @@
 package prs;
 
-
 import static org.junit.Assert.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Test;
 
@@ -29,5 +29,10 @@ public class StringCalculatorTest {
     @Test
     public void DifferentDelimiters(){
         assertSame(14, StringCalculator.add("//;\n10;4"));
+    }
+    @Test
+    public void NegativeNumberException(){
+        Exception ex=assertThrows(IllegalArgumentException.class, ()->StringCalculator.add("-3"),"negatives not allowed");
+        assertSame("negatives not allowed : -3", ex.getMessage());
     }
 }

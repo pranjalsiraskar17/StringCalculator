@@ -8,7 +8,7 @@ public class StringCalculator {
         int sum=arrayAdd(numarray);
         return sum; 
     }
-
+    
     public static int stringToInt(String str) {
         return Integer.parseInt(str);
     }
