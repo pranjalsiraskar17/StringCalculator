@@ -1,14 +1,14 @@
 package prs;
 
 public class StringCalculator {
-    public static int add(String numbers){
+    public static int add(String numbers) throws Exception {
         if(numbers.isEmpty())
             return 0;
         String[] numarray=findNumbers(numbers);
         int sum=arrayAdd(numarray);
         return sum; 
     }
-    
+
     public static int stringToInt(String str) {
         return Integer.parseInt(str);
     }
@@ -28,10 +28,14 @@ public class StringCalculator {
         return numarray;
     }
 
-    public static int arrayAdd(String[] numarray){
+    public static int arrayAdd(String[] numarray) throws Exception {
         int sum=0;
-        for(String str:numarray)
-            sum=sum+stringToInt(str);
+        for(String str:numarray){
+            int temp=stringToInt(str);
+            if(temp<0)
+                throw new IllegalArgumentException("negatives not allowed : -3");
+            sum=sum+temp;
+        }
         return sum;
     }
 }
