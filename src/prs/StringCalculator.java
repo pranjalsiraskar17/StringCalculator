@@ -4,31 +4,39 @@ import java.util.Arrays;
 
 public class StringCalculator {
     private static int count=0;
+    private static int index;
+    private static String numstring;
     public static int add(String numbers) throws Exception {
         count=count+1;
         if (numbers.isEmpty())
             return 0;
-        int[] numarray = findNumbers(numbers);
+        String delimiter=findDelimiter(numbers);
+        int[] numarray = findNumbers(delimiter);
         String negativenum=findNegativeNumbers(numarray);
         if(!negativenum.isEmpty())
             throw new IllegalArgumentException("negatives not allowed : "+negativenum);
         int sum = arrayAdd(numarray);
         return sum;
     }
-
-    public static int[] findNumbers(String numbers) {
+    
+    public static String findDelimiter(String numbers){
         String delimiter;
         if(numbers.matches("//(.*)\n(.*)")){
-            int index=numbers.lastIndexOf("\n");
+            index=numbers.lastIndexOf("\n");
             delimiter=numbers.substring(2, index)+"|\n";
             if(delimiter.charAt(0)=='[')
                 delimiter=delimiter.substring(1,delimiter.length()-3);
-            return Arrays.stream(numbers.substring(index+1).split(delimiter)).mapToInt(Integer::parseInt).toArray();
+            numstring=numbers.substring(index+1);
         }
         else{
             delimiter=",|\n";
+            numstring=numbers;
         }
-        return  Arrays.stream(numbers.split(delimiter)).mapToInt(Integer::parseInt).toArray();
+        return delimiter;
+    }
+
+    public static int[] findNumbers(String delimiter) {
+        return  Arrays.stream(numstring.split(delimiter)).mapToInt(Integer::parseInt).toArray();
     }
     
     public static String findNegativeNumbers(int[] numarray){
