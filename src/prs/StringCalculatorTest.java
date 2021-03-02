@@ -55,7 +55,7 @@ public class StringCalculatorTest {
     @Test
     @Order(100)
     public void TestGetCalledCount(){
-        assertSame(10, StringCalculator.getCalledCount());
+        assertSame(11, StringCalculator.getCalledCount());
     }
     @Test
     @Order(9)
@@ -66,5 +66,10 @@ public class StringCalculatorTest {
     @Order(10)
     public void DifferentLengthDelimiter() throws Exception {
         assertSame(7, StringCalculator.add("//[---]\n4---3"));
+    }
+    @Test
+    @Order(11)
+    public void MultipleDelimiter() throws Exception {
+        assertSame(6, StringCalculator.add("//[%][-]\n1%2-3"));
     }
 }
