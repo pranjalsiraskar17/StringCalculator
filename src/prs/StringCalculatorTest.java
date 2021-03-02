@@ -55,11 +55,16 @@ public class StringCalculatorTest {
     @Test
     @Order(100)
     public void TestGetCalledCount(){
-        assertSame(9, StringCalculator.getCalledCount());
+        assertSame(10, StringCalculator.getCalledCount());
     }
     @Test
     @Order(9)
     public void IgnoreBiggerNumbers() throws Exception {
         assertSame(5, StringCalculator.add("5,1002"));
+    }
+    @Test
+    @Order(10)
+    public void DifferentLengthDelimiter() throws Exception {
+        assertSame(7, StringCalculator.add("//[***]\n4***3"));
     }
 }
