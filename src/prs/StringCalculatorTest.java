@@ -35,4 +35,9 @@ public class StringCalculatorTest {
         Exception ex=assertThrows(IllegalArgumentException.class, ()->StringCalculator.add("-3"));
         assertSame("negatives not allowed : -3", ex.getMessage());
     }
+    @Test
+    public void MulitpleNegativeNumberException(){
+        Exception ex=assertThrows(IllegalArgumentException.class, ()->StringCalculator.add("-3,5,-4"));
+        assertSame("negatives not allowed : -3,-4", ex.getMessage());
+    }
 }
