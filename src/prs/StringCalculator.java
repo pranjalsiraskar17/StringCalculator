@@ -4,6 +4,16 @@ public class StringCalculator {
     public static int add(String numbers){
         if(numbers.isEmpty())
             return 0;
+        String[] numarray=findNumbers(numbers);
+        int sum=arrayAdd(numarray);
+        return sum; 
+    }
+
+    public static int stringToInt(String str) {
+        return Integer.parseInt(str);
+    }
+
+    public static String[] findNumbers(String numbers) {
         String delimiter;
         String[] numarray;
         if(numbers.matches("//(.*)\n(.*)")){
@@ -15,13 +25,7 @@ public class StringCalculator {
             delimiter=",|\n";
             numarray = numbers.split(delimiter);
         }
-        
-        int sum=arrayAdd(numarray);
-        return sum; 
-    }
-
-    public static int stringToInt(String str) {
-        return Integer.parseInt(str);
+        return numarray;
     }
 
     public static int arrayAdd(String[] numarray){
