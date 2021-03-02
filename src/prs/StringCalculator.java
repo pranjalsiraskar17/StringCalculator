@@ -44,7 +44,9 @@ public class StringCalculator {
     public static int arrayAdd(int[] numarray) throws Exception {
         int sum=0;
         for(int temp:numarray){
-                sum=sum+temp;
+            if(temp>1000)
+                continue;
+            sum=sum+temp;
         }
         return sum;
     }

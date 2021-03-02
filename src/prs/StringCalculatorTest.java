@@ -55,7 +55,7 @@ public class StringCalculatorTest {
     @Test
     @Order(100)
     public void TestGetCalledCount(){
-        assertSame(8, StringCalculator.getCalledCount());
+        assertSame(9, StringCalculator.getCalledCount());
     }
     @Test
     @Order(9)
