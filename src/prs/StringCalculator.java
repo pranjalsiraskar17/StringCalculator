@@ -3,8 +3,9 @@ package prs;
 import java.util.Arrays;
 
 public class StringCalculator {
-
+    private static int count=0;
     public static int add(String numbers) throws Exception {
+        count=count+1;
         if (numbers.isEmpty())
             return 0;
         int[] numarray = findNumbers(numbers);
@@ -47,5 +48,9 @@ public class StringCalculator {
         }
         return sum;
     }
+
+	public static Object getCalledCount() {
+		return count;
+	}
 
 }
