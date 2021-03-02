@@ -19,8 +19,11 @@ public class StringCalculator {
     public static int[] findNumbers(String numbers) {
         String delimiter;
         if(numbers.matches("//(.*)\n(.*)")){
-            delimiter=numbers.charAt(2)+"|\n";
-            return Arrays.stream(numbers.substring(4).split(delimiter)).mapToInt(Integer::parseInt).toArray();
+            int index=numbers.lastIndexOf("\n");
+            delimiter=numbers.substring(2, index)+"|\n";
+            if(delimiter.charAt(0)=='[')
+                delimiter=delimiter.substring(1,delimiter.length()-3);
+            return Arrays.stream(numbers.substring(index+1).split(delimiter)).mapToInt(Integer::parseInt).toArray();
         }
         else{
             delimiter=",|\n";

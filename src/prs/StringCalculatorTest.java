@@ -65,6 +65,6 @@ public class StringCalculatorTest {
     @Test
     @Order(10)
     public void DifferentLengthDelimiter() throws Exception {
-        assertSame(7, StringCalculator.add("//[***]\n4***3"));
+        assertSame(7, StringCalculator.add("//[---]\n4---3"));
     }
 }
