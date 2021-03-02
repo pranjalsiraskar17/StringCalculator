@@ -3,7 +3,7 @@ package prs;
 import static org.junit.Assert.assertSame;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class StringCalculatorTest {
     @Test
@@ -39,5 +39,9 @@ public class StringCalculatorTest {
     public void MulitpleNegativeNumberException(){
         Exception ex=assertThrows(IllegalArgumentException.class, ()->StringCalculator.add("-3,5,-4"));
         assertEquals("negatives not allowed : -3,-4", ex.getMessage());
+    }
+    @Test
+    public void TestGetCalledCount(){
+        assertSame(8, StringCalculator.getCalledCount());
     }
 }

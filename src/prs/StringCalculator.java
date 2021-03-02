@@ -3,6 +3,7 @@ package prs;
 import java.util.Arrays;
 
 public class StringCalculator {
+
     public static int add(String numbers) throws Exception {
         if (numbers.isEmpty())
             return 0;
@@ -46,4 +47,5 @@ public class StringCalculator {
         }
         return sum;
     }
+
 }
