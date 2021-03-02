@@ -30,12 +30,22 @@ public class StringCalculator {
 
     public static int arrayAdd(String[] numarray) throws Exception {
         int sum=0;
+        boolean bool=false;
+        String msg="";
         for(String str:numarray){
             int temp=stringToInt(str);
-            if(temp<0)
-                throw new IllegalArgumentException("negatives not allowed : -3");
-            sum=sum+temp;
+            if(temp<0){
+                bool=true;
+                if(msg.isEmpty())
+                    msg=""+temp;
+                else
+                    msg=msg+","+temp;
+            }
+            else
+                sum=sum+temp;
         }
+        if(bool)
+            throw new IllegalArgumentException("negatives not allowed : "+msg);
         return sum;
     }
 }
