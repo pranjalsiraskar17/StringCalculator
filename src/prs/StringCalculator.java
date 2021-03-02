@@ -24,13 +24,23 @@ public class StringCalculator {
         if(numbers.matches("//(.*)\n(.*)")){
             index=numbers.lastIndexOf("\n");
             delimiter=numbers.substring(2, index)+"|\n";
-            if(delimiter.charAt(0)=='[')
-                delimiter=delimiter.substring(1,delimiter.length()-3);
             numstring=numbers.substring(index+1);
         }
         else{
             delimiter=",|\n";
             numstring=numbers;
+        }
+        if(delimiter.charAt(0)=='['){
+            char[] ch=delimiter.substring(1,delimiter.length()-3).toCharArray();
+            delimiter="";
+            for(int i=0;i<ch.length;i++){
+                if(ch[i]=='[')
+                    delimiter=delimiter+'|';
+                else if(ch[i]==']')
+                    continue;
+                else 
+                    delimiter=delimiter+ch[i];
+            }
         }
         return delimiter;
     }
